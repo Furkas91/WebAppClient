@@ -1,0 +1,36 @@
+@model IEnumerable<Haircut>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-row justify-content-between mb-4">
+  <span class="d-inline"><h2>All Haircuts</h2></span>
+    @Html.ActionLink("Add Haircut", "AddHaircut", "Haircut", "",new { @class="btn btn-primary", role="button"})
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+        </tr>
+        </thead>
+        <tbody>
+    
+        @foreach (var haircut in this.Model)
+        {
+        <a href="/Disease/InfoDisease/@haircut.Id">
+            <tr onclick="location.href ='/Haircut/InfoHaircut/@haircut.Id'">
+
+                <th scope="row">@haircut.Id</th>
+                <td>@haircut.Type</td>
+
+            </tr>
+        </a>
+        }
+        </tbody>
+    </table>
+</div>

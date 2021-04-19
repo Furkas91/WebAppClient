@@ -1,0 +1,40 @@
+@model IEnumerable<Consumer>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<div class="d-flex flex-row justify-content-between mb-4">
+  <span class="d-inline"><h2>All Consumers</h2></span>
+    @Html.ActionLink("Add Consumer", "AddConsumer", "Consumer", "",new { @class="btn btn-primary", role="button"})
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Middle name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Loyalty</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var forecast in this.Model)
+        {
+            <tr>
+                <th scope="row">@forecast.Id</th>
+                <td>@forecast.FirstName</td>
+                <td>@forecast.LastName</td>
+                <td>@forecast.MiddleName</td>
+                <td>@forecast.PhoneNumber</td>
+                <td>@forecast.LoyaltyId</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
